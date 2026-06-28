@@ -38,7 +38,7 @@ class Demo3{
 
     public synchronized static Demo3 getInstance(){
         if(obj==null){
-            return new Demo3();
+            obj = new Demo3();
         }
         return obj;
     }
@@ -47,7 +47,7 @@ class Demo3{
 }
 
 /*
-1. Remove the synchronized keyword and run this, you will get 2 object creation.
+1. Remove the synchronized keyword and run this in a threaded env, you may get 2 object creation.
    if you use synchronized => it will help you run only one thread at a time.
    And that's how adding this make our class singleton for threaded env as well.
 

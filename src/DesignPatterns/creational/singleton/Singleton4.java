@@ -1,6 +1,6 @@
 package DesignPatterns.creational.singleton;
 
-//Sinletono withn Double locking
+// Singleton with Double locking
 public class Singleton4 {
     public static void main(String[] args) {
         Thread t1 = new Thread(new Runnable() {
@@ -23,7 +23,7 @@ public class Singleton4 {
 }
 
 class Demo4 {
-    static Demo4 obj;
+    private static volatile Demo4 obj;
 
     private Demo4() {
         System.out.println("Instance created"); // printing to track instance creation
@@ -47,5 +47,5 @@ class Demo4 {
 
 Now we are sorted totally.
 But we have one more way to create singleton design pattern using enum INSTANCE
-Lets check that out in Singleton4.java
+Lets check that out in Singleton5.java
 */
