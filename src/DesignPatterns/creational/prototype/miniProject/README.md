@@ -44,6 +44,47 @@ Client:
 From project root:
 
 ```bash
-javac src/DesignPatterns/creational/prototype/miniProject/App.java
-java -cp src DesignPatterns.creational.prototype.miniProject.App
+javac -d out src/DesignPatterns/creational/prototype/miniProject/*.java
+java -cp out DesignPatterns.creational.prototype.miniProject.App
+```
+---
+
+## Beginner Notes
+
+### What This Mini Project Proves
+
+This project proves how ready document templates can be copied and customized instead of being created from zero each time.
+
+### Pattern Mapping
+
+- Prototype: Document
+- Copy method: copy()
+- Registry: DocumentTemplateRegistry
+- Client: App
+
+### Better Run Command
+
+Use `-d out` so `.class` files are not created inside the source folders.
+
+```bash
+javac -d out src/DesignPatterns/creational/prototype/miniProject/*.java
+java -cp out DesignPatterns.creational.prototype.miniProject.App
+```
+
+### Expected Output
+
+The exact order can differ in examples that use threads, but the output will be similar to this:
+
+```text
+Offer Letter
+CodeN Technologies
+To: Nishchal
+We are happy to offer you the Java Developer role.
+Regards, HR Team
+
+Invoice
+CodeN Billing Department
+To: ABC Pvt Ltd
+Invoice amount: Rs. 50000
+Payment due within 15 days
 ```

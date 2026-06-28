@@ -62,6 +62,43 @@ Concrete Factories:
 From project root:
 
 ```bash
-javac src/DesignPatterns/creational/abstractFactory/miniProject/App.java
-java -cp src DesignPatterns.creational.abstractFactory.miniProject.App
+javac -d out src/DesignPatterns/creational/abstractFactory/miniProject/*.java
+java -cp out DesignPatterns.creational.abstractFactory.miniProject.App
+```
+---
+
+## Beginner Notes
+
+### What This Mini Project Proves
+
+This project proves how one factory creates a complete matching furniture family, so a room does not accidentally mix modern and Victorian products.
+
+### Pattern Mapping
+
+- Abstract Factory: FurnitureFactory
+- Concrete Factories: ModernFurnitureFactory, VictorianFurnitureFactory
+- Abstract Products: Chair, Sofa, CoffeeTable
+- Client: Room and App
+
+### Better Run Command
+
+Use `-d out` so `.class` files are not created inside the source folders.
+
+```bash
+javac -d out src/DesignPatterns/creational/abstractFactory/miniProject/*.java
+java -cp out DesignPatterns.creational.abstractFactory.miniProject.App
+```
+
+### Expected Output
+
+The exact order can differ in examples that use threads, but the output will be similar to this:
+
+```text
+Sitting on a clean modern chair
+Relaxing on a minimal modern sofa
+Placing cup on a glass modern coffee table
+
+Sitting on a royal Victorian chair
+Relaxing on a detailed Victorian sofa
+Placing cup on a carved Victorian coffee table
 ```

@@ -30,6 +30,43 @@ Template Method:
 ## How to Run
 
 ```bash
-javac src/DesignPatterns/behavioural/templateMethod/miniProject/App.java
-java -cp src DesignPatterns.behavioural.templateMethod.miniProject.App
+javac -d out src/DesignPatterns/behavioural/templateMethod/miniProject/*.java
+java -cp out DesignPatterns.behavioural.templateMethod.miniProject.App
+```
+---
+
+## Beginner Notes
+
+### What This Mini Project Proves
+
+This project proves how report generation can keep the same algorithm order while each report customizes selected steps.
+
+### Pattern Mapping
+
+- Abstract Class: ReportGenerator
+- Template Method: generate()
+- Concrete Classes: SalesReportGenerator, UserReportGenerator
+- Client: App
+
+### Better Run Command
+
+Use `-d out` so `.class` files are not created inside the source folders.
+
+```bash
+javac -d out src/DesignPatterns/behavioural/templateMethod/miniProject/*.java
+java -cp out DesignPatterns.behavioural.templateMethod.miniProject.App
+```
+
+### Expected Output
+
+The exact order can differ in examples that use threads, but the output will be similar to this:
+
+```text
+Fetching sales data
+Formatting data as table
+Exporting sales report as PDF
+
+Fetching user data
+Formatting data as table
+Exporting user report as CSV
 ```

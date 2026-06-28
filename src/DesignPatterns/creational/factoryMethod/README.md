@@ -4,16 +4,17 @@
 
 Factory Method is a creational design pattern.
 
-Creational means this pattern helps us with object creation.
+It is used when client code should not directly decide which concrete class object to create.
 
-Factory Method says:
+Instead of writing `new` for concrete classes everywhere, we move object creation into a special method called a factory method.
 
-Do not create objects directly everywhere using `new`.
-Instead, move the object creation logic into a separate method.
-That method is called the factory method.
+The client asks the creator for an object, and the creator decides which concrete product should be returned.
 
-The client code asks the factory method for an object.
-The factory method decides which concrete class object should be created.
+This keeps client code dependent on interfaces or abstract types instead of concrete implementation classes.
+
+This pattern is common in notification systems, payment systems, document exporters, UI components, and database connector creation.
+
+For beginners, remember this simple point: Factory Method moves object creation responsibility away from the client and into creator classes.
 
 ## Very Simple Meaning
 
@@ -221,3 +222,97 @@ The goal is to move `new` away from the client code and keep object creation in 
 So the beginner-friendly one-line definition is:
 
 Factory Method is a design pattern where we create objects through a method, so the client code does not need to know the exact class being created.
+---
+
+## Beginner Deep Dive
+
+### Pattern In One Line
+
+Factory Method lets a creator method decide which concrete object should be created.
+
+### What Is This Pattern?
+
+Factory Method moves object creation out of client code and into a creator method. The client works with an interface or abstract type, while child creator classes decide the concrete product.
+
+### The Core Problem It Solves
+
+If client code directly writes new EmailNotification(), new SMSNotification(), and new PushNotification(), it becomes tightly coupled to concrete classes and changes whenever object creation changes.
+
+### How It Works Step By Step
+
+1. Define a product interface that all products follow.
+2. Create concrete product classes.
+3. Define a creator class with a factory method.
+4. Let concrete creators override the factory method.
+5. Client code works with the creator and product abstractions.
+
+### Main Participants
+
+- Product: common interface for objects being created.
+- Concrete Product: actual class returned by the factory method.
+- Creator: declares the factory method.
+- Concrete Creator: decides which concrete product to create.
+
+### Simple Diagram
+
+```text
+Client -> Creator -> factoryMethod()
+                    -> Product interface
+                    -> ConcreteProduct
+```
+
+### When To Use
+
+- Object creation should be centralized.
+- Client should not depend on concrete product classes.
+- New product types may be added later.
+
+### When Not To Use
+
+- Do not use it when there is only one simple class and object creation is not likely to change.
+- Do not add factories everywhere just to hide new.
+
+### Advantages
+
+- Reduces coupling between client and concrete classes.
+- Supports Open/Closed Principle for adding new product types.
+- Keeps creation logic in one responsible place.
+
+### Disadvantages And Trade-Offs
+
+- Adds more classes.
+- May feel heavy for very small examples.
+
+### Do Not Confuse This With
+
+- Factory Method vs Simple Factory: Simple Factory usually has one if-else factory; Factory Method lets subclasses decide creation.
+- Factory Method vs Abstract Factory: Factory Method creates one product type; Abstract Factory creates families of related products.
+
+### How To Run The Learning Examples
+
+From the project root, use `-d out` so compiled files go into the `out` folder.
+
+```bash
+javac -d out src/DesignPatterns/creational/factoryMethod/FactoryMethod1.java
+java -cp out DesignPatterns.creational.factoryMethod.FactoryMethod1
+javac -d out src/DesignPatterns/creational/factoryMethod/FactoryMethod2.java
+java -cp out DesignPatterns.creational.factoryMethod.FactoryMethod2
+javac -d out src/DesignPatterns/creational/factoryMethod/FactoryMethod3.java
+java -cp out DesignPatterns.creational.factoryMethod.FactoryMethod3
+javac -d out src/DesignPatterns/creational/factoryMethod/FactoryMethod4.java
+java -cp out DesignPatterns.creational.factoryMethod.FactoryMethod4
+```
+
+### Interview Q&A
+
+### Does Factory Method remove new completely?
+
+No. It moves new into creator classes so client code is cleaner.
+
+### Why return an interface?
+
+So client code depends on behavior, not exact implementation.
+
+### What principle does it support?
+
+Open/Closed Principle.

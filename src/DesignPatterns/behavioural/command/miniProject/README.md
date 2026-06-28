@@ -33,6 +33,39 @@ Invoker:
 ## How to Run
 
 ```bash
-javac src/DesignPatterns/behavioural/command/miniProject/App.java
-java -cp src DesignPatterns.behavioural.command.miniProject.App
+javac -d out src/DesignPatterns/behavioural/command/miniProject/*.java
+java -cp out DesignPatterns.behavioural.command.miniProject.App
+```
+---
+
+## Beginner Notes
+
+### What This Mini Project Proves
+
+This project proves how jobs can be stored as command objects and executed later by a queue.
+
+### Pattern Mapping
+
+- Command: JobCommand
+- Concrete Commands: EmailJob, ReportJob, BackupJob
+- Invoker: JobQueue
+- Client: App
+
+### Better Run Command
+
+Use `-d out` so `.class` files are not created inside the source folders.
+
+```bash
+javac -d out src/DesignPatterns/behavioural/command/miniProject/*.java
+java -cp out DesignPatterns.behavioural.command.miniProject.App
+```
+
+### Expected Output
+
+The exact order can differ in examples that use threads, but the output will be similar to this:
+
+```text
+Sending email to customer@example.com
+Generating report: sales-report
+Backing up database: orders-db
 ```

@@ -27,6 +27,39 @@ Client:
 ## How to Run
 
 ```bash
-javac src/DesignPatterns/behavioural/iterator/miniProject/App.java
-java -cp src DesignPatterns.behavioural.iterator.miniProject.App
+javac -d out src/DesignPatterns/behavioural/iterator/miniProject/*.java
+java -cp out DesignPatterns.behavioural.iterator.miniProject.App
+```
+---
+
+## Beginner Notes
+
+### What This Mini Project Proves
+
+This project proves how a playlist can expose traversal without exposing its internal array.
+
+### Pattern Mapping
+
+- Iterator: SongIterator
+- Concrete Iterator: PlaylistIterator
+- Aggregate: Playlist
+- Client: App
+
+### Better Run Command
+
+Use `-d out` so `.class` files are not created inside the source folders.
+
+```bash
+javac -d out src/DesignPatterns/behavioural/iterator/miniProject/*.java
+java -cp out DesignPatterns.behavioural.iterator.miniProject.App
+```
+
+### Expected Output
+
+The exact order can differ in examples that use threads, but the output will be similar to this:
+
+```text
+Playing: Believer
+Playing: Perfect
+Playing: Faded
 ```

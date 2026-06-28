@@ -88,6 +88,47 @@ That is the goal of Factory Method.
 From project root:
 
 ```bash
-javac src/DesignPatterns/creational/factoryMethod/miniProject/*.java
-java -cp src DesignPatterns.creational.factoryMethod.miniProject.App
+javac -d out src/DesignPatterns/creational/factoryMethod/miniProject/*.java
+java -cp out DesignPatterns.creational.factoryMethod.miniProject.App
+```
+---
+
+## Beginner Notes
+
+### What This Mini Project Proves
+
+This project proves how Factory Method keeps App away from direct notification object creation. Each service decides which Notification product to create.
+
+### Pattern Mapping
+
+- Product: Notification
+- Concrete Products: EmailNotification, SMSNotification, PushNotification
+- Creator: NotificationService
+- Concrete Creators: EmailNotificationService, SMSNotificationService, PushNotificationService
+
+### Better Run Command
+
+Use `-d out` so `.class` files are not created inside the source folders.
+
+```bash
+javac -d out src/DesignPatterns/creational/factoryMethod/miniProject/*.java
+java -cp out DesignPatterns.creational.factoryMethod.miniProject.App
+```
+
+### Expected Output
+
+The exact order can differ in examples that use threads, but the output will be similar to this:
+
+```text
+EMAIL
+To      : customer@example.com
+Message : Your order has been placed.
+
+SMS
+To      : +91-9999999999
+Message : Your order has been packed.
+
+PUSH
+Device  : DEVICE-ABC-123
+Message : Your order is out for delivery.
 ```
